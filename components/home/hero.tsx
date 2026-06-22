@@ -8,15 +8,19 @@ import { ArrowRight } from "@phosphor-icons/react"
 import { buttonVariants } from "@/components/ui/button"
 import { ImagePlaceholder } from "@/components/shared/image-placeholder"
 
-gsap.registerPlugin()
-
-const WA_URL = process.env.NEXT_PUBLIC_WHATSAPP_URL!
+const WA_URL = process.env.NEXT_PUBLIC_WHATSAPP_URL ?? "https://wa.me/5511994310592"
 
 export function Hero() {
   const container = useRef<HTMLDivElement>(null)
 
   useGSAP(
     () => {
+      const targets = [".hero-eyebrow", ".hero-title", ".hero-subtitle", ".hero-ctas", ".hero-trust", ".hero-image"]
+      const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+      if (prefersReduced) {
+        gsap.set(targets, { opacity: 1, y: 0, scale: 1 })
+        return
+      }
       const tl = gsap.timeline({ defaults: { ease: "power3.out" } })
       tl.from(".hero-eyebrow", { opacity: 0, y: 12, duration: 0.55 })
         .from(".hero-title", { opacity: 0, y: 36, duration: 0.75 }, "-=0.25")

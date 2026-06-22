@@ -4,6 +4,7 @@ import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
 import { WhatsAppCTA } from "@/components/layout/whatsapp-cta"
 import { CookieConsent } from "@/components/shared/cookie-consent"
+import { MotionProvider } from "@/components/shared/motion-provider"
 import "./globals.css"
 
 const SITE_URL =
@@ -40,13 +41,15 @@ export default function RootLayout({
       className={`${cormorant.variable} ${dmSans.variable}`}
     >
       <body className="font-sans antialiased min-h-full flex flex-col">
-        <Header />
-        <main id="main-content" className="flex-1">
-          {children}
-        </main>
-        <Footer />
-        <WhatsAppCTA />
-        <CookieConsent />
+        <MotionProvider>
+          <Header />
+          <main id="main-content" className="flex-1">
+            {children}
+          </main>
+          <Footer />
+          <WhatsAppCTA />
+          <CookieConsent />
+        </MotionProvider>
       </body>
     </html>
   )

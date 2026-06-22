@@ -1,17 +1,15 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { X } from "@phosphor-icons/react"
 
 const STORAGE_KEY = "cookie-consent"
 
 export function CookieConsent() {
-  const [visible, setVisible] = useState(false)
-
-  useEffect(() => {
-    if (!localStorage.getItem(STORAGE_KEY)) setVisible(true)
-  }, [])
+  const [visible, setVisible] = useState(
+    () => typeof window !== "undefined" && !localStorage.getItem(STORAGE_KEY)
+  )
 
   function accept() {
     localStorage.setItem(STORAGE_KEY, "accepted")

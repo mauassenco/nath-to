@@ -19,7 +19,7 @@ const NAV_LINKS = [
   { href: "/contato", label: "Contato" },
 ]
 
-const WA_URL = process.env.NEXT_PUBLIC_WHATSAPP_URL!
+const WA_URL = process.env.NEXT_PUBLIC_WHATSAPP_URL ?? "https://wa.me/5511994310592"
 
 export function Header() {
   const pathname = usePathname()

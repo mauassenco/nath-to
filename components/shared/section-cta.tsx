@@ -9,7 +9,7 @@ interface SectionCtaProps {
 }
 
 export function SectionCta({ primary, secondary }: SectionCtaProps) {
-  const WA_URL = process.env.NEXT_PUBLIC_WHATSAPP_URL!
+  const WA_URL = process.env.NEXT_PUBLIC_WHATSAPP_URL ?? "https://wa.me/5511994310592"
   return (
     <div className="flex flex-col sm:flex-row gap-3 mt-8">
       <Link

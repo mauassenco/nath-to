@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { MapPin, Envelope, Phone } from "@phosphor-icons/react/dist/ssr"
 
-const WA_URL = process.env.NEXT_PUBLIC_WHATSAPP_URL!
+const WA_URL = process.env.NEXT_PUBLIC_WHATSAPP_URL ?? "https://wa.me/5511994310592"
 
 const NAV_LINKS = [
   { href: "/", label: "Início" },
@@ -87,7 +87,7 @@ export function Footer() {
           © {new Date().getFullYear()} Nathália Catharino Zaccaria. Todos os
           direitos reservados.
         </p>
-        <p>CRO-TO (inserir registro profissional)</p>
+        <p>CREFITO (inserir registro profissional)</p>
       </div>
     </footer>
   )
