@@ -21,7 +21,6 @@ export function ImagePlaceholder({
         className
       )}
       style={aspectRatio ? { aspectRatio } : undefined}
-      aria-hidden="true"
       role="img"
       aria-label={alt}
     >
