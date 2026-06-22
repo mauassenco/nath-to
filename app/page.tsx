@@ -17,9 +17,45 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
 }
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://nathaliacatharino.com.br",
+  name: "Nathália Catharino Zaccaria — Terapeuta Ocupacional",
+  description:
+    "Terapia Ocupacional especializada para adultos e idosos em Poços de Caldas, MG.",
+  url: "https://nathaliacatharino.com.br",
+  telephone: "+5511994310592",
+  email: "nat_zacc@hotmail.com",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Poços de Caldas",
+    addressRegion: "MG",
+    addressCountry: "BR",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: -21.7858,
+    longitude: -46.5636,
+  },
+  priceRange: "$$",
+  currenciesAccepted: "BRL",
+  openingHoursSpecification: {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    opens: "08:00",
+    closes: "18:00",
+  },
+  sameAs: ["https://www.linkedin.com/in/nathaliacatharinozaccaria"],
+}
+
 export default function HomePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Hero />
       <Authority />
       <AboutPreview />

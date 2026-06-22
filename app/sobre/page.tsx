@@ -14,9 +14,32 @@ export const metadata: Metadata = {
   alternates: { canonical: "/sobre" },
 }
 
+const personLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Nathália Catharino Zaccaria",
+  jobTitle: "Terapeuta Ocupacional",
+  description:
+    "Terapeuta Ocupacional com 15 anos de experiência em reabilitação neurológica, saúde mental e atendimento domiciliar.",
+  url: "https://nathaliacatharino.com.br/sobre",
+  sameAs: ["https://www.linkedin.com/in/nathaliacatharinozaccaria"],
+  worksFor: {
+    "@type": "Organization",
+    name: "Nathália Catharino Zaccaria — Terapia Ocupacional",
+  },
+  alumniOf: {
+    "@type": "CollegeOrUniversity",
+    name: "Centro Universitário São Camilo",
+  },
+}
+
 export default function SobrePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personLd) }}
+      />
       <SobreHero />
       <SobreQuem />
       <SobreAbordagem />
