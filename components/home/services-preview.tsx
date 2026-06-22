@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { motion } from "motion/react"
-import { Brain, Bone, Sparkle, Heart, House, Users, ArrowRight } from "@phosphor-icons/react"
+import { Brain, Bone, Sparkle, Heart, House, ArrowRight } from "@phosphor-icons/react"
 import { buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import type { Icon } from "@phosphor-icons/react"
@@ -24,7 +24,7 @@ const SERVICES: { icon: Icon; title: string; description: string }[] = [
     description: "Intervenções voltadas a reduzir limitações funcionais, adaptar tarefas e favorecer o retorno às atividades do dia a dia.",
   },
   {
-    icon: Brain,
+    icon: Sparkle,
     title: "Estimulação cognitiva",
     description: "Trabalho para atenção, memória, organização e manutenção da participação em atividades significativas.",
   },
