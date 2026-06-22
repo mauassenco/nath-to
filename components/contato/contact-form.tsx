@@ -1,6 +1,6 @@
 "use client"
 
-import { useActionState, useEffect } from "react"
+import { useActionState, useEffect, useTransition } from "react"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { contactSchema, type ContactFormData } from "@/lib/contact-schema"
@@ -15,17 +15,32 @@ import { Label } from "@/components/ui/label"
 import { CheckCircle } from "@phosphor-icons/react"
 
 export function ContactForm() {
-  const [state, action, isPending] = useActionState<
+  const [state, action, isServerPending] = useActionState<
     ContactActionResult | null,
     FormData
   >(submitContact, null)
 
+  const [isTransitionPending, startTransition] = useTransition()
+
+  const isPending = isServerPending || isTransitionPending
+
   const {
     register,
+    handleSubmit,
     setError,
     formState: { errors },
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
+  })
+
+  const onSubmit = handleSubmit(async (data) => {
+    const formData = new FormData()
+    Object.entries(data).forEach(([key, val]) => {
+      if (val !== undefined) formData.append(key, String(val))
+    })
+    startTransition(() => {
+      action(formData)
+    })
   })
 
   useEffect(() => {
@@ -59,7 +74,7 @@ export function ContactForm() {
   }
 
   return (
-    <form action={action} noValidate className="space-y-5">
+    <form onSubmit={onSubmit} noValidate className="space-y-5">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div className="space-y-1.5">
           <Label htmlFor="name">Nome completo *</Label>

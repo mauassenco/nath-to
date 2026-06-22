@@ -17,6 +17,45 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
 }
 
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Para quem o atendimento é indicado?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Principalmente para adultos e idosos que precisam de apoio em reabilitação neurológica, pós-AVC, reabilitação ortopédica, estimulação cognitiva, saúde mental ou adaptação da rotina.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "O atendimento pode ser domiciliar?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Sim. Quando a mobilidade, a condição clínica ou o contexto da pessoa favorecem esse formato, o atendimento domiciliar pode ser a melhor opção.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Como a Terapia Ocupacional ajuda na prática?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Ela ajuda a pessoa a ampliar autonomia, organizar a rotina, manter participação nas atividades e encontrar estratégias mais funcionais para viver melhor.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "O atendimento inclui família e cuidadores?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Quando necessário, sim. A orientação para familiares e cuidadores faz parte de um cuidado mais completo e efetivo.",
+      },
+    },
+  ],
+}
+
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
@@ -55,6 +94,10 @@ export default function HomePage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
       <Hero />
       <Authority />
