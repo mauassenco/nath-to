@@ -13,7 +13,7 @@ function fadeUp(delay = 0) {
 
 export function SobreQuem() {
   return (
-    <section className="py-16 px-6 bg-muted">
+    <section className="section-gradient px-6 py-16">
       <div className="mx-auto max-w-3xl">
         <motion.div {...fadeUp()}>
           <h2 className="font-display text-3xl sm:text-4xl font-medium text-foreground mb-6">

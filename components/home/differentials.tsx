@@ -13,8 +13,16 @@ const ITEMS = [
 
 export function Differentials() {
   return (
-    <section className="py-20 px-6 bg-primary text-primary-foreground" aria-labelledby="differentials-title">
-      <div className="mx-auto max-w-6xl">
+    <section
+      className="relative overflow-hidden bg-primary py-20 px-6 text-primary-foreground"
+      aria-labelledby="differentials-title"
+    >
+      <div
+        className="pointer-events-none absolute inset-0 opacity-20"
+        style={{ background: "var(--gradient-botanical-soft)" }}
+        aria-hidden="true"
+      />
+      <div className="relative mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -39,7 +47,7 @@ export function Differentials() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.45, delay: i * 0.07, ease: "easeOut" }}
               viewport={{ once: true, margin: "-60px" }}
-              className="border border-primary-foreground/20 rounded-lg p-5"
+              className="glass-dark rounded-lg p-5"
             >
               <p className="text-primary-foreground/90 leading-relaxed">{item}</p>
             </motion.div>

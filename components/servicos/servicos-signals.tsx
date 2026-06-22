@@ -16,7 +16,7 @@ const SIGNALS = [
 export function ServicosSignals() {
   return (
     <section
-      className="py-16 px-6 bg-muted"
+      className="section-gradient px-6 py-16"
       aria-labelledby="signals-title"
     >
       <div className="mx-auto max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">

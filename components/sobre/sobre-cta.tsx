@@ -44,6 +44,7 @@ export function SobreCta() {
             individualizado, entre em contato para entender como posso ajudar.
           </p>
           <SectionCta
+            onDark
             primary={{ label: "Agende uma conversa inicial", href: "/contato" }}
             secondary={{ label: "Fale pelo WhatsApp", href: "#", external: true }}
           />

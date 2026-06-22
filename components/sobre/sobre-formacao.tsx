@@ -37,7 +37,7 @@ function fadeUp(delay = 0) {
 export function SobreFormacao() {
   return (
     <section
-      className="py-16 px-6 bg-muted"
+      className="section-gradient px-6 py-16"
       aria-labelledby="education-title"
     >
       <div className="mx-auto max-w-3xl">

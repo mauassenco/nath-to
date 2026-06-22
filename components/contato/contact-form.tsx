@@ -56,7 +56,11 @@ export function ContactForm() {
 
   if (state?.success) {
     return (
-      <div className="flex flex-col items-center text-center py-12 gap-4">
+      <div
+        role="status"
+        aria-live="polite"
+        className="flex flex-col items-center text-center py-12 gap-4"
+      >
         <CheckCircle
           size={48}
           className="text-primary"
@@ -82,6 +86,7 @@ export function ContactForm() {
             id="name"
             {...register("name")}
             autoComplete="name"
+            aria-required="true"
             aria-invalid={!!errors.name}
             aria-describedby={errors.name ? "name-error" : undefined}
           />
@@ -125,6 +130,7 @@ export function ContactForm() {
           type="email"
           {...register("email")}
           autoComplete="email"
+          aria-required="true"
           aria-invalid={!!errors.email}
           aria-describedby={errors.email ? "email-error" : undefined}
         />
@@ -144,6 +150,7 @@ export function ContactForm() {
         <select
           id="preference"
           {...register("preference")}
+          aria-required="true"
           aria-invalid={!!errors.preference}
           aria-describedby={
             errors.preference ? "preference-error" : undefined
@@ -173,6 +180,7 @@ export function ContactForm() {
           {...register("message")}
           rows={5}
           placeholder="Conte brevemente o que está buscando..."
+          aria-required="true"
           aria-invalid={!!errors.message}
           aria-describedby={errors.message ? "message-error" : undefined}
         />
@@ -195,8 +203,9 @@ export function ContactForm() {
 
       <Button
         type="submit"
-        size="lg"
+        size="xl"
         disabled={isPending}
+        aria-busy={isPending}
         className="w-full sm:w-auto"
       >
         {isPending ? "Enviando..." : "Enviar mensagem"}

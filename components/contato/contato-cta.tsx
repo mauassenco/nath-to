@@ -2,6 +2,7 @@
 
 import { motion } from "motion/react"
 import { WhatsappLogo } from "@phosphor-icons/react"
+import { ExternalLink } from "@/components/shared/external-link"
 
 const WA_URL = process.env.NEXT_PUBLIC_WHATSAPP_URL ?? "#"
 
@@ -23,15 +24,13 @@ export function ContatoCta() {
             entender a realidade da pessoa e indicar o melhor caminho de
             cuidado.
           </p>
-          <a
+          <ExternalLink
             href={WA_URL}
-            target="_blank"
-            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-primary-foreground text-primary font-medium px-8 py-3 rounded-full hover:bg-primary-foreground/90 transition-colors"
           >
             <WhatsappLogo size={20} aria-hidden="true" />
             Fale pelo WhatsApp
-          </a>
+          </ExternalLink>
         </motion.div>
       </div>
     </section>

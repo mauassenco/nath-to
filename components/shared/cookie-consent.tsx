@@ -1,18 +1,35 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { X } from "@phosphor-icons/react"
 
 const STORAGE_KEY = "cookie-consent"
 
 export function CookieConsent() {
-  const [visible, setVisible] = useState(
-    () => typeof window !== "undefined" && !localStorage.getItem(STORAGE_KEY)
-  )
+  const [visible, setVisible] = useState(false)
+  const acceptRef = useRef<HTMLButtonElement>(null)
+
+  useEffect(() => {
+    if (!localStorage.getItem(STORAGE_KEY)) {
+      setVisible(true)
+    }
+  }, [])
+
+  useEffect(() => {
+    if (visible) {
+      acceptRef.current?.focus()
+    }
+  }, [visible])
 
   function accept() {
     localStorage.setItem(STORAGE_KEY, "accepted")
+    setVisible(false)
+  }
+
+  function dismiss() {
+    localStorage.setItem(STORAGE_KEY, "dismissed")
     setVisible(false)
   }
 
@@ -21,28 +38,46 @@ export function CookieConsent() {
   return (
     <div
       role="dialog"
-      aria-live="polite"
-      aria-label="Aviso de cookies"
-      className="fixed bottom-0 left-0 right-0 z-50 bg-foreground text-background/90 px-6 py-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-lg"
+      aria-modal="true"
+      aria-labelledby="cookie-consent-title"
+      aria-describedby="cookie-consent-description"
+      className="glass-primary fixed right-0 bottom-0 left-0 z-50 flex flex-col items-start justify-between gap-4 px-6 py-4 text-primary-foreground sm:flex-row sm:items-center"
     >
-      <p className="text-sm leading-relaxed max-w-xl">
-        Este site usa cookies para melhorar sua experiência. Ao continuar navegando, você concorda com o uso de cookies conforme nossa política de privacidade.
-      </p>
+      <div className="max-w-xl">
+        <p id="cookie-consent-title" className="sr-only">
+          Aviso de cookies
+        </p>
+        <p
+          id="cookie-consent-description"
+          className="text-sm leading-relaxed"
+        >
+          Este site usa cookies para melhorar sua experiência. Ao continuar
+          navegando, você concorda com o uso de cookies conforme nossa{" "}
+          <Link
+            href="/contato"
+            className="underline underline-offset-2 hover:text-primary-foreground/90"
+          >
+            política de privacidade
+          </Link>
+          .
+        </p>
+      </div>
       <div className="flex items-center gap-3 shrink-0">
         <Button
+          ref={acceptRef}
           size="sm"
-          variant="secondary"
+          variant="inverse"
           onClick={accept}
-          className="bg-background text-foreground hover:bg-background/90"
         >
           Aceitar
         </Button>
         <button
-          onClick={accept}
+          type="button"
+          onClick={dismiss}
           aria-label="Fechar aviso de cookies"
-          className="text-background/60 hover:text-background transition-colors"
+          className="flex min-h-11 min-w-11 items-center justify-center text-primary-foreground/60 transition-colors hover:text-primary-foreground"
         >
-          <X size={18} />
+          <X size={18} aria-hidden="true" />
         </button>
       </div>
     </div>

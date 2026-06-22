@@ -4,7 +4,7 @@ import { motion } from "motion/react"
 
 export function ServicosIntro() {
   return (
-    <section className="py-12 px-6 bg-muted">
+    <section className="section-gradient px-6 py-12">
       <div className="mx-auto max-w-3xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

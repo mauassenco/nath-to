@@ -6,8 +6,11 @@ import { ContactForm } from "@/components/contato/contact-form"
 
 export function ContatoMain() {
   return (
-    <section className="py-16 px-6 bg-background">
-      <div className="mx-auto max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-16">
+    <section
+      id="contato-formulario"
+      className="section-gradient scroll-mt-28 px-6 py-16"
+    >
+      <div className="mx-auto grid max-w-6xl grid-cols-1 gap-16 lg:grid-cols-2">
         <ContatoInfo />
 
         <motion.div
@@ -15,6 +18,7 @@ export function ContatoMain() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.15, ease: "easeOut" }}
           viewport={{ once: true, margin: "-80px" }}
+          className="glass-card rounded-2xl p-8"
         >
           <h2 className="font-display text-2xl sm:text-3xl font-medium text-foreground mb-8">
             Envie sua mensagem

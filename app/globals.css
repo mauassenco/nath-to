@@ -5,70 +5,91 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  /* Fonts — variables injected by next/font via layout.tsx */
   --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-cormorant), ui-serif, Georgia, serif;
 
-  /* Color palette — warm parchment + sienna + terracotta */
-  --color-background:        hsl(38 35% 97%);
-  --color-foreground:        hsl(17 18% 15%);
+  /* Sage + warm stone + champagne accent (botanical harmony) */
+  --color-background:        hsl(42 32% 96%);
+  --color-foreground:        hsl(24 20% 14%);
 
-  --color-primary:           hsl(18 30% 35%);
-  --color-primary-foreground: hsl(38 35% 97%);
+  --color-primary:           hsl(158 34% 24%);
+  --color-primary-foreground: hsl(42 32% 97%);
 
-  --color-accent:            hsl(22 45% 56%);
-  --color-accent-foreground: hsl(17 18% 15%);
+  --color-accent:            hsl(48 34% 42%);
+  --color-accent-foreground: hsl(42 32% 97%);
 
-  --color-muted:             hsl(34 18% 91%);
-  --color-muted-foreground:  hsl(20 10% 46%);
+  --color-muted:             hsl(38 22% 91%);
+  --color-muted-foreground:  hsl(24 12% 38%);
 
-  --color-card:              hsl(0 0% 100%);
-  --color-card-foreground:   hsl(17 18% 15%);
+  --color-card:              hsl(40 28% 99%);
+  --color-card-foreground:   hsl(24 20% 14%);
 
-  --color-border:            hsl(34 18% 85%);
-  --color-input:             hsl(34 18% 85%);
-  --color-ring:              hsl(18 30% 35%);
+  --color-border:            hsl(36 18% 84%);
+  --color-input:             hsl(36 18% 84%);
+  --color-ring:              hsl(158 34% 24%);
 
-  /* Radii */
-  --radius-sm:  4px;
-  --radius:     8px;
-  --radius-md:  12px;
+  --radius-sm:  6px;
+  --radius:     10px;
+  --radius-md:  14px;
   --radius-lg:  20px;
-  --radius-xl:  32px;
+  --radius-xl:  28px;
 
-  /* Shadows (warm-tinted) */
-  --shadow-sm:  0 1px 3px hsl(17 18% 15% / 0.07);
-  --shadow-md:  0 4px 16px hsl(17 18% 15% / 0.09);
-  --shadow-lg:  0 12px 40px hsl(17 18% 15% / 0.11);
+  --shadow-sm:  0 1px 3px hsl(24 20% 14% / 0.06);
+  --shadow-md:  0 6px 24px hsl(24 20% 14% / 0.08);
+  --shadow-lg:  0 16px 48px hsl(24 20% 14% / 0.1);
+  --shadow-btn: 0 4px 14px hsl(158 34% 24% / 0.22);
 }
 
-/* Shadcn/ui compatibility layer */
 :root {
-  --background: 38 35% 97%;
-  --foreground: 17 18% 15%;
-  --card: 0 0% 100%;
-  --card-foreground: 17 18% 15%;
-  --popover: 0 0% 100%;
-  --popover-foreground: 17 18% 15%;
-  --primary: 18 30% 35%;
-  --primary-foreground: 38 35% 97%;
-  --secondary: 34 18% 91%;
-  --secondary-foreground: 17 18% 15%;
-  --muted: 34 18% 91%;
-  --muted-foreground: 20 10% 46%;
-  --accent: 22 45% 56%;
-  --accent-foreground: 17 18% 15%;
+  --background: 42 32% 96%;
+  --foreground: 24 20% 14%;
+  --card: 40 28% 99%;
+  --card-foreground: 24 20% 14%;
+  --popover: 40 28% 99%;
+  --popover-foreground: 24 20% 14%;
+  --primary: 158 34% 24%;
+  --primary-foreground: 42 32% 97%;
+  --secondary: 38 22% 91%;
+  --secondary-foreground: 24 20% 14%;
+  --muted: 38 22% 91%;
+  --muted-foreground: 24 12% 38%;
+  --accent: 48 34% 42%;
+  --accent-foreground: 42 32% 97%;
   --destructive: 0 84% 60%;
-  --destructive-foreground: 38 35% 97%;
-  --border: 34 18% 85%;
-  --input: 34 18% 85%;
-  --ring: 18 30% 35%;
-  --radius: 0.5rem;
+  --destructive-foreground: 42 32% 97%;
+  --border: 36 18% 84%;
+  --input: 36 18% 84%;
+  --ring: 158 34% 24%;
+  --radius: 0.625rem;
+
+  --gradient-botanical: linear-gradient(
+    145deg,
+    hsl(38 22% 91%) 0%,
+    hsl(42 32% 94%) 50%,
+    hsl(158 20% 88%) 100%
+  );
+  --gradient-botanical-soft: linear-gradient(
+    145deg,
+    hsl(38 22% 91% / 0.95) 0%,
+    hsl(42 32% 94% / 0.75) 45%,
+    hsl(158 20% 88% / 0.85) 100%
+  );
+
+  --glass-bg: hsl(40 28% 99% / 0.38);
+  --glass-bg-strong: hsl(40 28% 99% / 0.55);
+  --glass-border: hsl(40 28% 99% / 0.52);
+  --glass-border-subtle: hsl(36 18% 84% / 0.45);
+  --glass-highlight: hsl(40 28% 99% / 0.9);
+  --glass-blur: 20px;
+  --glass-blur-strong: 28px;
 }
 
-/* Base reset */
 * {
   border-color: hsl(var(--border));
+}
+
+html {
+  scroll-padding-top: 5rem;
 }
 
 body {
@@ -76,6 +97,398 @@ body {
   color: hsl(var(--foreground));
 }
 
-/* Typography scale helpers */
 .text-balance { text-wrap: balance; }
 .text-pretty  { text-wrap: pretty; }
+
+/* Hero atmosphere */
+.hero-glow {
+  background:
+    var(--gradient-botanical-soft),
+    radial-gradient(
+      ellipse 70% 55% at 85% 15%,
+      hsl(158 34% 24% / 0.08),
+      transparent 65%
+    ),
+    radial-gradient(
+      ellipse 50% 40% at 10% 90%,
+      hsl(48 34% 42% / 0.08),
+      transparent 60%
+    ),
+    hsl(var(--background));
+}
+
+/* Botanical gradient surfaces */
+.bg-gradient-botanical {
+  background: var(--gradient-botanical);
+}
+
+.section-gradient {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: hsl(var(--muted));
+}
+
+.section-gradient::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-botanical-soft);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.section-gradient::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      ellipse 52% 42% at 88% 6%,
+      hsl(158 34% 24% / 0.11),
+      transparent 62%
+    ),
+    radial-gradient(
+      ellipse 46% 40% at 6% 94%,
+      hsl(48 34% 42% / 0.13),
+      transparent 58%
+    );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.section-gradient > *:not(.pointer-events-none) {
+  position: relative;
+  z-index: 1;
+}
+
+.section-gradient > .pointer-events-none {
+  position: absolute;
+  z-index: 0;
+}
+
+/* Glassmorphism utilities */
+.glass {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  box-shadow:
+    0 4px 24px hsl(24 20% 14% / 0.06),
+    inset 0 1px 0 var(--glass-highlight);
+}
+
+@supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+  .glass {
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+  }
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass {
+    background: hsl(var(--card));
+  }
+}
+
+.glass-strong {
+  background: var(--glass-bg-strong);
+  border: 1px solid hsl(36 18% 84% / 0.65);
+  box-shadow:
+    0 8px 32px hsl(24 20% 14% / 0.08),
+    inset 0 1px 0 var(--glass-highlight);
+}
+
+@supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+  .glass-strong {
+    backdrop-filter: blur(var(--glass-blur-strong));
+    -webkit-backdrop-filter: blur(var(--glass-blur-strong));
+  }
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass-strong {
+    background: hsl(var(--card));
+  }
+}
+
+.glass-nav {
+  background: hsl(42 32% 96% / 0.55);
+  border-bottom: 1px solid hsl(36 18% 84% / 0.45);
+  box-shadow: 0 4px 20px hsl(24 20% 14% / 0.04);
+}
+
+@supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+  .glass-nav {
+    backdrop-filter: blur(var(--glass-blur-strong));
+    -webkit-backdrop-filter: blur(var(--glass-blur-strong));
+  }
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass-nav {
+    background: hsl(var(--background) / 0.95);
+  }
+}
+
+.glass-nav-scrolled {
+  background: hsl(42 32% 96% / 0.82);
+  border-bottom: 1px solid hsl(36 18% 84% / 0.6);
+  box-shadow: var(--shadow-sm);
+}
+
+@supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+  .glass-nav-scrolled {
+    backdrop-filter: blur(var(--glass-blur-strong));
+    -webkit-backdrop-filter: blur(var(--glass-blur-strong));
+  }
+}
+
+.glass-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  box-shadow:
+    0 8px 32px hsl(24 20% 14% / 0.07),
+    inset 0 1px 0 var(--glass-highlight);
+  transition:
+    box-shadow 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease;
+}
+
+@supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+  .glass-card {
+    backdrop-filter: blur(var(--glass-blur)) saturate(1.35);
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(1.35);
+  }
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass-card {
+    background: hsl(var(--card) / 0.92);
+  }
+}
+
+.glass-card:hover {
+  background: hsl(40 28% 99% / 0.48);
+  border-color: hsl(40 28% 99% / 0.65);
+  box-shadow:
+    0 12px 40px hsl(24 20% 14% / 0.09),
+    inset 0 1px 0 var(--glass-highlight);
+}
+
+.glass-dark {
+  background: hsl(42 32% 97% / 0.1);
+  border: 1px solid hsl(42 32% 97% / 0.18);
+  box-shadow: inset 0 1px 0 hsl(42 32% 97% / 0.12);
+}
+
+@supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+  .glass-dark {
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+  }
+}
+
+.glass-primary {
+  background: hsl(158 34% 24% / 0.88);
+  border-top: 1px solid hsl(42 32% 97% / 0.14);
+  box-shadow: 0 -8px 32px hsl(24 20% 14% / 0.12);
+}
+
+@supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+  .glass-primary {
+    backdrop-filter: blur(var(--glass-blur-strong));
+    -webkit-backdrop-filter: blur(var(--glass-blur-strong));
+  }
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass-primary {
+    background: hsl(var(--primary));
+  }
+}
+
+.glass-pill {
+  background: hsl(40 28% 99% / 0.32);
+  border: 1px solid hsl(40 28% 99% / 0.5);
+  box-shadow:
+    0 4px 16px hsl(24 20% 14% / 0.05),
+    inset 0 1px 0 hsl(40 28% 99% / 0.75);
+}
+
+@supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+  .glass-pill {
+    backdrop-filter: blur(16px) saturate(1.3);
+    -webkit-backdrop-filter: blur(16px) saturate(1.3);
+  }
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass-pill {
+    background: hsl(var(--card) / 0.9);
+  }
+}
+
+.glass-pill:hover {
+  background: hsl(40 28% 99% / 0.48);
+  border-color: hsl(158 34% 24% / 0.22);
+}
+
+.glass-panel {
+  background: hsl(40 28% 99% / 0.4);
+  border: 1px solid hsl(40 28% 99% / 0.55);
+  box-shadow:
+    0 16px 48px hsl(24 20% 14% / 0.09),
+    inset 0 1px 0 hsl(40 28% 99% / 0.88);
+}
+
+@supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+  .glass-panel {
+    backdrop-filter: blur(var(--glass-blur-strong)) saturate(1.4);
+    -webkit-backdrop-filter: blur(var(--glass-blur-strong)) saturate(1.4);
+  }
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass-panel {
+    background: hsl(var(--card) / 0.92);
+  }
+}
+
+.glass-whatsapp {
+  background: hsl(158 34% 24% / 0.68);
+  border: 1px solid hsl(42 32% 97% / 0.22);
+  color: hsl(42 32% 97%);
+  box-shadow:
+    0 8px 28px hsl(158 34% 24% / 0.32),
+    inset 0 1px 0 hsl(42 32% 97% / 0.2);
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+@supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+  .glass-whatsapp {
+    backdrop-filter: blur(16px) saturate(1.25);
+    -webkit-backdrop-filter: blur(16px) saturate(1.25);
+  }
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass-whatsapp {
+    background: hsl(var(--primary));
+  }
+}
+
+.glass-whatsapp:hover {
+  background: hsl(158 34% 24% / 0.82);
+  box-shadow:
+    0 12px 36px hsl(158 34% 24% / 0.38),
+    inset 0 1px 0 hsl(42 32% 97% / 0.28);
+}
+
+.glass-whatsapp:active {
+  transform: scale(0.95);
+}
+
+/* Editorial photo slot (until real images) */
+.photo-slot {
+  position: relative;
+  overflow: hidden;
+  background: var(--gradient-botanical);
+  border: 1px solid hsl(var(--border) / 0.7);
+  box-shadow: var(--shadow-md);
+}
+
+.photo-slot::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    hsl(40 28% 99% / 0.42) 0%,
+    transparent 48%
+  );
+  pointer-events: none;
+}
+
+.photo-slot::after {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: inherit;
+  border: 1px solid hsl(40 28% 99% / 0.35);
+  pointer-events: none;
+}
+
+/* Process timeline connector */
+@media (min-width: 1024px) {
+  .process-timeline::before {
+    content: "";
+    position: absolute;
+    top: 2.75rem;
+    left: 8%;
+    right: 8%;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      hsl(var(--border)) 8%,
+      hsl(var(--border)) 92%,
+      transparent
+    );
+  }
+}
+
+/* FAQ accordion — custom open states & hide default icons */
+.faq-accordion [data-slot="accordion-trigger-icon"] {
+  display: none;
+}
+
+.faq-accordion .faq-item {
+  isolation: isolate;
+}
+
+.faq-accordion .faq-item [data-slot="accordion-trigger"] {
+  border-radius: 0;
+  background: transparent;
+  border-color: transparent;
+}
+
+.faq-accordion .faq-item [data-slot="accordion-content"],
+.faq-accordion .faq-item [data-slot="accordion-content"] > div {
+  background: transparent;
+}
+
+.faq-accordion .faq-item:has([aria-expanded="true"]) {
+  border-color: hsl(158 34% 24% / 0.28);
+  background: hsl(40 28% 99% / 0.52);
+  box-shadow:
+    0 8px 32px hsl(158 34% 24% / 0.1),
+    inset 0 1px 0 var(--glass-highlight);
+}
+
+@supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+  .faq-accordion .faq-item:has([aria-expanded="true"]) {
+    backdrop-filter: blur(var(--glass-blur)) saturate(1.35);
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(1.35);
+  }
+}
+
+.faq-accordion .faq-item:has([aria-expanded="true"]) .faq-chevron {
+  rotate: 180deg;
+  border-color: hsl(158 34% 24% / 0.2);
+  background: hsl(158 34% 24% / 0.08);
+  color: hsl(158 34% 24%);
+}
+
+.faq-accordion .faq-trigger {
+  align-items: center;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+
+.faq-accordion .faq-item:has([aria-expanded="true"]) .faq-trigger {
+  padding-bottom: 0.75rem;
+}

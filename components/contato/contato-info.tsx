@@ -6,6 +6,7 @@ import {
   Envelope,
   MapPin,
 } from "@phosphor-icons/react"
+import { ExternalLink } from "@/components/shared/external-link"
 
 const WA_URL = process.env.NEXT_PUBLIC_WHATSAPP_URL ?? "#"
 
@@ -40,14 +41,12 @@ export function ContatoInfo() {
           </span>
           <div>
             <p className="font-medium text-foreground mb-1">WhatsApp</p>
-            <a
+            <ExternalLink
               href={WA_URL}
-              target="_blank"
-              rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors"
             >
               (11) 99431-0592
-            </a>
+            </ExternalLink>
           </div>
         </div>
 
@@ -89,7 +88,7 @@ export function ContatoInfo() {
         </div>
       </div>
 
-      <div className="mt-10 p-6 bg-muted rounded-xl">
+      <div className="glass-card mt-10 rounded-xl p-6">
         <h3 className="font-medium text-foreground mb-3">
           Quando este contato é indicado
         </h3>

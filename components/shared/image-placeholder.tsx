@@ -13,18 +13,27 @@ export function ImagePlaceholder({
   label,
   aspectRatio,
 }: ImagePlaceholderProps) {
+  const accessibleName = alt ?? label ?? "Foto"
   const displayLabel = label ?? alt ?? "Foto"
   return (
     <div
       className={cn(
-        "flex items-center justify-center rounded-lg bg-muted text-muted-foreground text-sm",
+        "photo-slot relative flex flex-col items-center justify-center gap-2 rounded-2xl text-muted-foreground",
         className
       )}
       style={aspectRatio ? { aspectRatio } : undefined}
       role="img"
-      aria-label={alt}
+      aria-label={accessibleName}
     >
-      {displayLabel}
+      <span
+        className="relative z-[1] font-display text-2xl text-primary/40 select-none"
+        aria-hidden="true"
+      >
+        ◦
+      </span>
+      <span className="relative z-[1] text-xs font-medium tracking-wide uppercase">
+        {displayLabel}
+      </span>
     </div>
   )
 }

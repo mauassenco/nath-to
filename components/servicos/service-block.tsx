@@ -24,7 +24,7 @@ export function ServiceBlock({
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.55, delay: (index % 2) * 0.1, ease: "easeOut" }}
       viewport={{ once: true, margin: "-60px" }}
-      className="group bg-card rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow border border-border/40"
+      className="group glass-card rounded-xl p-8 transition-shadow"
       aria-labelledby={`service-${index}-title`}
     >
       <div className="flex items-start gap-5 mb-5">
