@@ -1,6 +1,6 @@
 "use client"
 
-import { useActionState } from "react"
+import { useActionState, useEffect } from "react"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { contactSchema, type ContactFormData } from "@/lib/contact-schema"
@@ -22,10 +22,22 @@ export function ContactForm() {
 
   const {
     register,
+    setError,
     formState: { errors },
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
   })
+
+  useEffect(() => {
+    if (state?.success === false && state.errors) {
+      Object.entries(state.errors).forEach(([field, message]) => {
+        setError(field as keyof ContactFormData, {
+          type: "server",
+          message: String(message),
+        })
+      })
+    }
+  }, [state, setError])
 
   if (state?.success) {
     return (
@@ -70,7 +82,7 @@ export function ContactForm() {
         </div>
 
         <div className="space-y-1.5">
-          <Label htmlFor="phone">Telefone / WhatsApp *</Label>
+          <Label htmlFor="phone">Telefone / WhatsApp</Label>
           <Input
             id="phone"
             type="tel"

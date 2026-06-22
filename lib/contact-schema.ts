@@ -7,9 +7,12 @@ export const contactSchema = z.object({
     .max(100),
   phone: z
     .string()
-    .min(10, "Informe um número de telefone ou WhatsApp válido.")
-    .max(20)
-    .regex(/^[\d\s()\-+]+$/, "Apenas números e caracteres válidos."),
+    .regex(/^[\d\s()\-+]*$/, "Apenas números e caracteres válidos.")
+    .refine((v) => v === "" || v.replace(/\D/g, "").length >= 10, {
+      message: "Informe um número de telefone ou WhatsApp válido.",
+    })
+    .optional()
+    .or(z.literal("")),
   email: z
     .string()
     .email("Informe um e-mail válido.")
