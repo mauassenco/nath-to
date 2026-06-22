@@ -3,6 +3,7 @@ import { cormorant, dmSans } from "@/lib/fonts"
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
 import { WhatsAppCTA } from "@/components/layout/whatsapp-cta"
+import { CookieConsent } from "@/components/shared/cookie-consent"
 import "./globals.css"
 
 export const metadata: Metadata = {
@@ -36,6 +37,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <WhatsAppCTA />
+        <CookieConsent />
       </body>
     </html>
   )
