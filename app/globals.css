@@ -355,7 +355,7 @@ body {
 }
 
 .glass-whatsapp {
-  background: hsl(158 34% 24% / 0.68);
+  background: hsl(158 34% 24% / 1);
   border: 1px solid hsl(42 32% 97% / 0.22);
   color: hsl(42 32% 97%);
   box-shadow:

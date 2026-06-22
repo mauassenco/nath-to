@@ -28,6 +28,12 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary",
   },
+  icons: {
+    icon: [
+      { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" },
+    ],
+    apple: "/apple-icon.png",
+  },
 }
 
 export default function RootLayout({

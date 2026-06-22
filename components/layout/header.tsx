@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/sheet"
 import { buttonVariants } from "@/components/ui/button"
 import { ExternalLink } from "@/components/shared/external-link"
+import { SiteLogo } from "@/components/shared/site-logo"
 import { cn } from "@/lib/utils"
 
 const NAV_LINKS = [
@@ -41,14 +42,8 @@ export function Header() {
         scrolled ? "glass-nav-scrolled" : "glass-nav"
       )}
     >
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-        <Link
-          href="/"
-          className="font-display text-lg font-semibold tracking-wide text-foreground"
-          aria-label="Nathália Catharino Zaccaria – página inicial"
-        >
-          Nathália Catharino
-        </Link>
+      <div className="mx-auto flex h-[4.75rem] max-w-6xl items-center justify-between px-6">
+        <SiteLogo variant="header" />
 
         <nav
           className="hidden items-center gap-7 md:flex"

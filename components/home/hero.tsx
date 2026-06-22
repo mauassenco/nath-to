@@ -50,7 +50,7 @@ export function Hero() {
   return (
     <section
       ref={container}
-      className="hero-glow relative flex min-h-[100dvh] items-center overflow-hidden bg-background pt-16"
+      className="hero-glow relative flex min-h-[100dvh] items-center overflow-hidden bg-background pt-[4.75rem]"
       aria-labelledby="hero-title"
     >
       <div

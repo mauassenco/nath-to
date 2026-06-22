@@ -1,6 +1,7 @@
 import { MapPin, Envelope, Phone } from "@phosphor-icons/react/dist/ssr"
 import { ExternalLink } from "@/components/shared/external-link"
 import { FooterNav } from "@/components/layout/footer-nav"
+import { SiteLogo } from "@/components/shared/site-logo"
 
 const WA_URL = process.env.NEXT_PUBLIC_WHATSAPP_URL ?? "https://wa.me/5511994310592"
 const PHONE = "+5511994310592"
@@ -10,9 +11,7 @@ export function Footer() {
     <footer className="bg-primary pt-14 pb-8 text-primary-foreground/85">
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-10 px-6 md:grid-cols-3">
         <div>
-          <p className="font-display mb-2 text-lg font-medium text-primary-foreground">
-            Nathália Catharino Zaccaria
-          </p>
+          <SiteLogo variant="footer" className="mb-2" />
           <p className="text-sm leading-relaxed">
             Terapeuta Ocupacional com 15 anos de experiência em reabilitação
             neurológica, saúde mental e atendimento domiciliar.
