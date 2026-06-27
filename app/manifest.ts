@@ -1,4 +1,5 @@
 import type { MetadataRoute } from 'next'
+import { BRAND } from '@/lib/brand'
 
 export default function manifest(): MetadataRoute.Manifest {
 	return {
@@ -18,7 +19,7 @@ export default function manifest(): MetadataRoute.Manifest {
 				purpose: 'maskable',
 			},
 		],
-		theme_color: '#2d5244',
+		theme_color: BRAND.primaryColor,
 		background_color: '#f8f6f2',
 		display: 'standalone',
 	}

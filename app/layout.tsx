@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { BRAND } from "@/lib/brand"
 import { cormorant, dmSans } from "@/lib/fonts"
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
@@ -29,10 +30,8 @@ export const metadata: Metadata = {
     card: "summary",
   },
   icons: {
-    icon: [
-      { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" },
-    ],
-    apple: "/apple-icon.png",
+    icon: [{ url: BRAND.favicon, sizes: "96x96", type: "image/png" }],
+    apple: BRAND.appleIcon,
   },
 }
 

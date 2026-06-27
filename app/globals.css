@@ -82,6 +82,13 @@
   --glass-highlight: hsl(40 28% 99% / 0.9);
   --glass-blur: 20px;
   --glass-blur-strong: 28px;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-soft: cubic-bezier(0.33, 1, 0.68, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --duration-fast: 0.22s;
+  --duration-base: 0.45s;
+  --duration-slow: 0.72s;
 }
 
 * {
@@ -275,6 +282,60 @@ body {
     inset 0 1px 0 var(--glass-highlight);
 }
 
+.glass-card-interactive {
+  transform-origin: center bottom;
+  transition:
+    transform var(--duration-fast) var(--ease-out-expo),
+    box-shadow var(--duration-base) var(--ease-out-soft),
+    border-color var(--duration-base) var(--ease-out-soft),
+    background var(--duration-base) var(--ease-out-soft);
+}
+
+.glass-card-interactive:hover {
+  transform: translateY(-3px);
+}
+
+.glass-card-interactive .card-icon {
+  transition:
+    transform var(--duration-fast) var(--ease-out-expo),
+    background-color var(--duration-base) var(--ease-out-soft) 30ms;
+}
+
+.glass-card-interactive:hover .card-icon {
+  transform: scale(1.04);
+  background-color: hsl(158 34% 24% / 0.14);
+}
+
+.cta-arrow {
+  margin-left: 0.25rem;
+  transform-origin: left center;
+  transition: transform var(--duration-fast) var(--ease-out-expo);
+}
+
+.group:hover .cta-arrow,
+.group\/button:hover .cta-arrow {
+  transform: translateX(4px) rotate(2deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glass-card-interactive:hover {
+    transform: none;
+  }
+
+  .glass-card-interactive:hover .card-icon {
+    transform: none;
+  }
+
+  .group:hover .cta-arrow,
+  .group\/button:hover .cta-arrow {
+    transform: none;
+  }
+
+  .glass-whatsapp:hover {
+    transform: none;
+  }
+}
+
 .glass-dark {
   background: hsl(42 32% 97% / 0.1);
   border: 1px solid hsl(42 32% 97% / 0.18);
@@ -362,9 +423,9 @@ body {
     0 8px 28px hsl(158 34% 24% / 0.32),
     inset 0 1px 0 hsl(42 32% 97% / 0.2);
   transition:
-    transform 0.2s ease,
-    background 0.2s ease,
-    box-shadow 0.2s ease;
+    transform var(--duration-fast) var(--ease-out-expo),
+    background var(--duration-base) var(--ease-out-soft),
+    box-shadow var(--duration-base) var(--ease-out-soft);
 }
 
 @supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
@@ -381,6 +442,7 @@ body {
 }
 
 .glass-whatsapp:hover {
+  transform: translateY(-2px) scale(1.03);
   background: hsl(158 34% 24% / 0.82);
   box-shadow:
     0 12px 36px hsl(158 34% 24% / 0.38),
@@ -423,14 +485,20 @@ body {
 }
 
 /* Process timeline connector */
+.process-timeline-line {
+  display: none;
+}
+
 @media (min-width: 1024px) {
-  .process-timeline::before {
-    content: "";
+  .process-timeline-line {
+    display: block;
     position: absolute;
     top: 2.75rem;
     left: 8%;
     right: 8%;
     height: 1px;
+    transform-origin: left center;
+    transform: scaleX(0);
     background: linear-gradient(
       90deg,
       transparent,
@@ -448,6 +516,11 @@ body {
 
 .faq-accordion .faq-item {
   isolation: isolate;
+  transition:
+    transform var(--duration-fast) var(--ease-out-expo),
+    border-color var(--duration-base) var(--ease-out-soft),
+    background var(--duration-base) var(--ease-out-soft),
+    box-shadow var(--duration-base) var(--ease-out-soft);
 }
 
 .faq-accordion .faq-item [data-slot="accordion-trigger"] {
@@ -462,6 +535,7 @@ body {
 }
 
 .faq-accordion .faq-item:has([aria-expanded="true"]) {
+  transform: scale(1.002);
   border-color: hsl(158 34% 24% / 0.28);
   background: hsl(40 28% 99% / 0.52);
   box-shadow:
@@ -476,11 +550,44 @@ body {
   }
 }
 
+.faq-accordion .faq-chevron {
+  transition:
+    rotate var(--duration-base) var(--ease-out-expo),
+    border-color var(--duration-base) var(--ease-out-soft),
+    background-color var(--duration-base) var(--ease-out-soft),
+    color var(--duration-base) var(--ease-out-soft);
+}
+
 .faq-accordion .faq-item:has([aria-expanded="true"]) .faq-chevron {
   rotate: 180deg;
   border-color: hsl(158 34% 24% / 0.2);
   background: hsl(158 34% 24% / 0.08);
   color: hsl(158 34% 24%);
+}
+
+.faq-accordion .faq-answer {
+  animation: faq-answer-in var(--duration-base) var(--ease-out-expo) 0.08s both;
+}
+
+@keyframes faq-answer-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .faq-accordion .faq-item:has([aria-expanded="true"]) {
+    transform: none;
+  }
+
+  .faq-accordion .faq-answer {
+    animation: none;
+  }
 }
 
 .faq-accordion .faq-trigger {

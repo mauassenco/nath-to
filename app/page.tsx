@@ -2,6 +2,8 @@ import { Hero } from "@/components/home/hero"
 import { Authority } from "@/components/home/authority"
 import { AboutPreview } from "@/components/home/about-preview"
 import { ServicesPreview } from "@/components/home/services-preview"
+import { Benefits } from "@/components/home/benefits"
+import { Differentials } from "@/components/home/differentials"
 import { HowItWorks } from "@/components/home/how-it-works"
 import { FaqSection } from "@/components/home/faq-section"
 import { FinalCta } from "@/components/home/final-cta"
@@ -100,6 +102,8 @@ export default function HomePage() {
       <Authority />
       <AboutPreview />
       <ServicesPreview />
+      <Benefits />
+      <Differentials />
       <HowItWorks />
       <FaqSection />
       <FinalCta />

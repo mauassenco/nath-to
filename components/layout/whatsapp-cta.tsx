@@ -8,7 +8,7 @@ export function WhatsAppCTA() {
     <ExternalLink
       href={WA_URL}
       aria-label="Fale pelo WhatsApp (abre em nova aba)"
-      className="glass-whatsapp fixed right-6 bottom-6 z-50 flex size-14 items-center justify-center rounded-full hover:scale-105 focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+      className="glass-whatsapp fixed right-6 bottom-6 z-50 flex size-14 items-center justify-center rounded-full focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
     >
       <WhatsappLogo size={28} weight="fill" aria-hidden="true" />
     </ExternalLink>

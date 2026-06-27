@@ -1,24 +1,31 @@
 import Image from "next/image"
 import Link from "next/link"
+import { getLogoSrc, getLogoToneForBackground, type LogoTone } from "@/lib/brand"
 import { cn } from "@/lib/utils"
 
 interface SiteLogoProps {
   className?: string
   variant?: "header" | "footer"
+  tone?: LogoTone
 }
 
-export function SiteLogo({ className, variant = "header" }: SiteLogoProps) {
+export function SiteLogo({
+  className,
+  variant = "header",
+  tone,
+}: SiteLogoProps) {
   const isHeader = variant === "header"
+  const logoTone =
+    tone ??
+    getLogoToneForBackground(variant === "footer" ? "primary" : "default")
 
   const logo = (
     <Image
-      src="/logo-nathalia-catharino-removebg.png"
+      src={getLogoSrc(logoTone)}
       alt=""
-      width={331}
-      height={322}
-      className={cn(
-        "shrink-0 object-contain h-16 w-16",
-      )}
+      width={1024}
+      height={1024}
+      className={cn("h-16 w-16 shrink-0 object-contain")}
       priority={isHeader}
       aria-hidden
     />
