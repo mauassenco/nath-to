@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import { BRAND } from "@/lib/brand"
+import { SEO } from "@/lib/site"
 import { cormorant, dmSans } from "@/lib/fonts"
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
@@ -14,9 +15,8 @@ const SITE_URL =
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default:
-      "Nathália Catharino Zaccaria — Terapeuta Ocupacional | Poços de Caldas, MG",
-    template: "%s | Nathália Catharino Zaccaria — Terapeuta Ocupacional",
+    default: SEO.homeTitle,
+    template: "%s | Terapeuta Ocupacional Poços de Caldas",
   },
   description:
     "Terapia Ocupacional especializada para adultos e idosos. Reabilitação neurológica, pós-AVC, ortopédica, estimulação cognitiva, saúde mental e atendimento domiciliar em Poços de Caldas, MG.",

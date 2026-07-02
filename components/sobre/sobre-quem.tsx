@@ -20,7 +20,8 @@ export function SobreQuem() {
 							Sua experiência reúne atendimento em saúde mental, neurologia,
 							envelhecimento saudável, quadros demenciais, reabilitação
 							ortopédica, cuidado domiciliar e atuação em equipe multidisciplinar
-							em contextos públicos e privados.
+							em contextos públicos e privados — com base formativa em Terapia
+							Ocupacional e especialização em Saúde Mental.
 						</p>
 						<p>
 							Ao longo da carreira, também desenvolveu atuação em ensino e

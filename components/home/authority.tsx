@@ -2,9 +2,13 @@
 
 import { Check } from "@phosphor-icons/react"
 import { Reveal, RevealGroup, RevealItem } from "@/components/shared/reveal"
+import { CAREER_COPY, SITE } from "@/lib/site"
 
 const STATS = [
-	{ value: "15+", label: "anos de experiência clínica" },
+	{
+		value: String(SITE.career.startYear),
+		label: "início da atuação clínica",
+	},
 	{ value: "Adultos", label: "e idosos como foco" },
 	{ value: "Clínico", label: "e atendimento domiciliar" },
 ]
@@ -34,9 +38,9 @@ export function Authority() {
 						Experiência clínica com olhar humano
 					</h2>
 					<p className="text-base leading-relaxed text-muted-foreground">
-						Com 15 anos de atuação em Terapia Ocupacional, Nathália acompanha
-						pessoas em diferentes momentos da vida com foco na funcionalidade,
-						autonomia e participação nas atividades cotidianas.
+						{CAREER_COPY.sinceSentence}, Nathália acompanha pessoas em
+						diferentes momentos da vida com foco na funcionalidade, autonomia e
+						participação nas atividades cotidianas.
 					</p>
 					<p className="mt-4 text-base leading-relaxed text-muted-foreground">
 						Trajetória em saúde mental, neurologia, envelhecimento, quadros

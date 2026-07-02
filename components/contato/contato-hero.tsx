@@ -11,9 +11,8 @@ import {
 import { ExternalLink } from "@/components/shared/external-link"
 import { buttonVariants } from "@/components/ui/button"
 import { Reveal, RevealGroup, RevealItem } from "@/components/shared/reveal"
+import { SITE } from "@/lib/site"
 import { cn } from "@/lib/utils"
-
-const WA_URL = process.env.NEXT_PUBLIC_WHATSAPP_URL ?? "#"
 
 interface ContactChannel {
 	icon: Icon
@@ -28,22 +27,22 @@ const CONTACT_CHANNELS: ContactChannel[] = [
 	{
 		icon: WhatsappLogo,
 		label: "WhatsApp",
-		value: "(11) 99431-0592",
-		hint: "Resposta mais rápida",
-		href: WA_URL,
+		value: SITE.phone.display,
+		hint: SITE.phone.note,
+		href: SITE.whatsappUrl,
 		external: true,
 	},
 	{
 		icon: Envelope,
 		label: "E-mail",
-		value: "nat_zacc@hotmail.com",
+		value: SITE.email,
 		hint: "Para mensagens detalhadas",
-		href: "mailto:nat_zacc@hotmail.com",
+		href: `mailto:${SITE.email}`,
 	},
 	{
 		icon: MapPin,
 		label: "Local de atendimento",
-		value: "Poços de Caldas, MG",
+		value: SITE.location.city,
 		hint: "Presencial e domiciliar",
 	},
 ]
@@ -121,7 +120,7 @@ export function ContatoHero() {
 
 					<div className="flex flex-col gap-3 sm:flex-row sm:items-center">
 						<ExternalLink
-							href={WA_URL}
+							href={SITE.whatsappUrl}
 							className={cn(buttonVariants({ size: "xl", variant: "whatsapp" }))}
 						>
 							<WhatsappLogo size={20} aria-hidden="true" />

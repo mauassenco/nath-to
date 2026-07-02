@@ -8,9 +8,10 @@ import { HowItWorks } from "@/components/home/how-it-works"
 import { FaqSection } from "@/components/home/faq-section"
 import { FinalCta } from "@/components/home/final-cta"
 import type { Metadata } from "next"
+import { SEO, SITE } from "@/lib/site"
 
 export const metadata: Metadata = {
-  title: "Nathália Catharino Zaccaria — Terapeuta Ocupacional | Poços de Caldas, MG",
+  title: { absolute: SEO.homeTitle },
   description:
     "Terapia Ocupacional especializada para adultos e idosos. Reabilitação neurológica, pós-AVC, ortopédica, estimulação cognitiva e saúde mental em Poços de Caldas, MG.",
   alternates: { canonical: "/" },
@@ -63,8 +64,8 @@ const jsonLd = {
   description:
     "Terapia Ocupacional especializada para adultos e idosos em Poços de Caldas, MG.",
   url: "https://nathaliacatharino.com.br",
-  telephone: "+5511994310592",
-  email: "nat_zacc@hotmail.com",
+  telephone: SITE.phone.tel,
+  email: SITE.email,
   address: {
     "@type": "PostalAddress",
     addressLocality: "Poços de Caldas",

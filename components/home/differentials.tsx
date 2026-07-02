@@ -1,9 +1,10 @@
 "use client"
 
 import { Reveal, RevealGroup, RevealItem } from "@/components/shared/reveal"
+import { CAREER_COPY } from "@/lib/site"
 
 const ITEMS = [
-	"15 anos de experiência clínica em Terapia Ocupacional.",
+	CAREER_COPY.decades,
 	"Atuação consistente com adultos e idosos.",
 	"Vivência em saúde mental, neurologia, reabilitação e envelhecimento.",
 	"Atendimento clínico e domiciliar.",

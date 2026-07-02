@@ -2,9 +2,7 @@ import { MapPin, Envelope, Phone } from "@phosphor-icons/react/dist/ssr"
 import { ExternalLink } from "@/components/shared/external-link"
 import { FooterNav } from "@/components/layout/footer-nav"
 import { SiteLogo } from "@/components/shared/site-logo"
-
-const WA_URL = process.env.NEXT_PUBLIC_WHATSAPP_URL ?? "https://wa.me/5511994310592"
-const PHONE = "+5511994310592"
+import { SITE, CAREER_COPY } from "@/lib/site"
 
 export function Footer() {
   return (
@@ -13,8 +11,7 @@ export function Footer() {
         <div>
           <SiteLogo variant="footer" className="mb-2" />
           <p className="text-sm leading-relaxed">
-            Terapeuta Ocupacional com 15 anos de experiência em reabilitação
-            neurológica, saúde mental e atendimento domiciliar.
+            {CAREER_COPY.footer}
           </p>
         </div>
 
@@ -25,19 +22,24 @@ export function Footer() {
             Contato
           </p>
           <ul className="flex flex-col gap-3 text-sm">
-            <li className="flex items-center gap-2">
-              <Phone size={14} aria-hidden="true" />
-              <a
-                href={`tel:${PHONE}`}
-                className="transition-colors hover:text-primary-foreground"
-              >
-                (11) 99431-0592
-              </a>
+            <li className="flex items-start gap-2">
+              <Phone size={14} className="mt-0.5 shrink-0" aria-hidden="true" />
+              <span>
+                <a
+                  href={`tel:${SITE.phone.tel}`}
+                  className="transition-colors hover:text-primary-foreground"
+                >
+                  {SITE.phone.display}
+                </a>
+                <span className="mt-0.5 block text-xs text-primary-foreground/60">
+                  {SITE.phone.note}
+                </span>
+              </span>
             </li>
             <li className="flex items-center gap-2">
               <Phone size={14} aria-hidden="true" />
               <ExternalLink
-                href={WA_URL}
+                href={SITE.whatsappUrl}
                 className="transition-colors hover:text-primary-foreground"
               >
                 WhatsApp
@@ -46,10 +48,10 @@ export function Footer() {
             <li className="flex items-center gap-2">
               <Envelope size={14} aria-hidden="true" />
               <a
-                href="mailto:nat_zacc@hotmail.com"
+                href={`mailto:${SITE.email}`}
                 className="transition-colors hover:text-primary-foreground"
               >
-                nat_zacc@hotmail.com
+                {SITE.email}
               </a>
             </li>
             <li className="flex items-start gap-2">
@@ -59,9 +61,9 @@ export function Footer() {
                 aria-hidden="true"
               />
               <span>
-                Poços de Caldas, MG
+                {SITE.location.city}
                 <br />
-                Atendimento presencial e domiciliar
+                {SITE.location.modality}
               </span>
             </li>
           </ul>

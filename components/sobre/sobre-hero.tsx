@@ -2,6 +2,7 @@
 
 import { ImagePlaceholder } from "@/components/shared/image-placeholder"
 import { Reveal } from "@/components/shared/reveal"
+import { CAREER_COPY } from "@/lib/site"
 
 export function SobreHero() {
 	return (
@@ -21,10 +22,10 @@ export function SobreHero() {
 						Conheça a profissional por trás do cuidado
 					</h1>
 					<p className="text-lg leading-relaxed text-muted-foreground">
-						Nathália Catharino Zaccaria é terapeuta ocupacional com 15 anos de
-						experiência, dedicada ao cuidado de adultos e idosos com foco em
-						autonomia, funcionalidade, saúde mental, reabilitação neurológica,
-						pós-AVC e estimulação cognitiva.
+						Nathália Catharino Zaccaria é terapeuta ocupacional{" "}
+						{CAREER_COPY.sinceInline}, dedicada ao cuidado de adultos e idosos
+						com foco em autonomia, funcionalidade, saúde mental, reabilitação
+						neurológica, pós-AVC e estimulação cognitiva.
 					</p>
 				</Reveal>
 

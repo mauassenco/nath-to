@@ -22,18 +22,26 @@ export function SobreAreas() {
 			<div className="mx-auto grid max-w-6xl grid-cols-1 items-start gap-12 lg:grid-cols-2">
 				<Reveal>
 					<p className="mb-4 text-sm font-medium tracking-widest text-accent uppercase">
-						Especialidades
+						Áreas de atuação
 					</p>
 					<h2
 						id="areas-title"
 						className="font-display mb-4 text-3xl font-medium text-foreground sm:text-4xl"
 					>
-						Onde minha atuação é mais forte
+						Onde minha prática clínica é mais forte
 					</h2>
 					<p className="leading-relaxed text-muted-foreground">
-						Essas frentes refletem a prática construída ao longo de anos de
-						atendimento clínico, avaliação funcional e acompanhamento de pessoas
-						com diferentes níveis de complexidade e necessidade de cuidado.
+						Estas frentes representam o núcleo do atendimento oferecido hoje a
+						adultos e idosos. Consolidaram-se na experiência clínica — e não
+						apenas em titulações formais — com avaliação funcional, reabilitação
+						e acompanhamento de rotina.
+					</p>
+					<p className="mt-4 leading-relaxed text-muted-foreground">
+						A prática em neurologia, funcionalidade, cognição e envelhecimento
+						foi construída em serviços como Centro de Referência do Idoso, AME
+						Psiquiatria, CAPS, atendimento domiciliar e equipes
+						multidisciplinares do SUS e da rede privada, com base formativa em
+						Terapia Ocupacional e especialização em Saúde Mental.
 					</p>
 				</Reveal>
 

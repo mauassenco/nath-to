@@ -8,10 +8,8 @@ import { buttonVariants } from "@/components/ui/button"
 import { CtaArrow } from "@/components/shared/cta-arrow"
 import { ImagePlaceholder } from "@/components/shared/image-placeholder"
 import { ExternalLink } from "@/components/shared/external-link"
+import { SITE, CAREER_COPY } from "@/lib/site"
 import { cn } from "@/lib/utils"
-
-const WA_URL =
-	process.env.NEXT_PUBLIC_WHATSAPP_URL ?? "https://wa.me/5511994310592"
 
 export function Hero() {
 	const container = useRef<HTMLDivElement>(null)
@@ -89,9 +87,9 @@ export function Hero() {
 					</h1>
 
 					<p className="hero-subtitle mb-8 max-w-lg text-base leading-relaxed text-pretty text-muted-foreground sm:text-lg">
-						Reabilitação neurológica, pós-AVC, ortopédica, estimulação cognitiva
-						e saúde mental — com planos personalizados para a rotina real de
-						cada pessoa.
+						Reabilitação neurológica, pós-AVC, ortopédica, reabilitação motora,
+						estimulação cognitiva e saúde mental — com planos personalizados para
+						a rotina real de cada pessoa.
 					</p>
 
 					<div className="hero-ctas flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -103,7 +101,7 @@ export function Hero() {
 							<CtaArrow size={20} />
 						</Link>
 						<ExternalLink
-							href={WA_URL}
+							href={SITE.whatsappUrl}
 							className={buttonVariants({ size: "lg", variant: "whatsapp" })}
 						>
 							Fale pelo WhatsApp
@@ -112,7 +110,7 @@ export function Hero() {
 
 					<div className="hero-trust mt-10 flex flex-wrap gap-3 text-sm text-muted-foreground">
 						{[
-							"15 anos de experiência",
+							CAREER_COPY.sinceShort,
 							"Atendimento domiciliar",
 							"Plano terapêutico individual",
 						].map((item) => (
